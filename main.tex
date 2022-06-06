@@ -1,25 +1,3 @@
-%-----------------------------------------------------------------------------------------------------------------------------------------------%
-%	The MIT License (MIT)
-%
-%	Copyright (c) 2019 Jan Küster
-%
-%	Permission is hereby granted, free of charge, to any person obtaining a copy
-%	of this software and associated documentation files (the "Software"), to deal
-%	in the Software without restriction, including without limitation the rights
-%	to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-%	copies of the Software, and to permit persons to whom the Software is
-%	furnished to do so, subject to the following conditions:
-%	
-%	THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-%	IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-%	FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-%	AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-%	LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-%	OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-%	THE SOFTWARE.
-%	
-%
-%-----------------------------------------------------------------------------------------------------------------------------------------------%
 
 
 %============================================================================%
@@ -225,9 +203,22 @@
 % Renders a a CV section headline with a nice underline in main color.
 % param 1: section title
 \newcommand{\cvsection}[1] {
-	\vspace{14pt}
+	\vspace{12pt}
 	\cvtext{
 		\textbf{\LARGE{\textcolor{darkcol}{\uppercase{#1}}}}\\[-4pt]
+		\textcolor{maincol}{ \rule{0.1\textwidth}{2pt} } \\
+	}
+}
+%----------------------------------------------------------------------------------------
+%	CV SEMISECTION
+%----------------------------------------------------------------------------------------
+
+% Renders a a CV section headline with a nice underline in main color.
+% param 1: section title
+\newcommand{\cvsubsection}[1] {
+	\vspace{9pt}
+	\cvtext{
+		\textbf{\normalsize{\textcolor{darkcol}{\uppercase{#1}}}}\\[-4pt]
 		\textcolor{maincol}{ \rule{0.1\textwidth}{2pt} } \\
 	}
 }
@@ -357,68 +348,79 @@
 \vfill\null
 \cvsection{CONTACT}
 	
-\iconemail{EnvelopeSquare}{14}{yourmail@gmail.com}{yourmail@gmail.com}{black}\\[6pt]
-\icontext{Github}{14}{\href{https://github.com/yourid}{yourid}}{black}\\[6pt]
-\icontext{Linkedin}{14}{\href{https://www.linkedin.com/in/yourid/}{yourid}}{black}\\[6pt]
-\icontext{Phone}{14}{+91 XXXXX XXXXX}{black}\\[6pt]
-\vfill\null
+\iconemail{EnvelopeSquare}{14}{vfranktor@gmail.com}{vfranktor@gmail.com}{black}\\[6pt]
+\icontext{Github}{14}{\href{https://github.com/g3ar-v}{g3ar-v}}{black}\\[6pt]
+\icontext{Linkedin}{14}{\href{https://www.linkedin.com/in/victor-nyoyoko-1a1518196}{victor nyoyoko}}{black}\\[6pt]
+\icontext{Phone}{14}{+44 7760532407}{black}\\[6pt]
+% \vfill\null
 %\cvqrcode{0.7}
 
 %---------------------------------------------------------------------------------------
 %	META SKILLS
 %----------------------------------------------------------------------------------------
-\cvsection{SKILLS}
+\vfill
+\cvsubsection{AREA OF EXPERTISE}
+
+\cvtext{Internet of Things}
+
+\cvtext{Computer Vision}
+
+\cvtext{FullStack development}
+
+\cvtext{Cloud Computing}
+
+%---------------------------------------------------------------------------------------
+%	META SKILLS
+%----------------------------------------------------------------------------------------
+\vfill
+\cvsubsection{SKILLS}
 
 %\cvskill{Skill_Name} {Years of experience} {percentage of bar fill} \\[-2pt]
 
-\cvskill{Internet of Things} {5+ yrs} {1} \\[-2pt]
+\cvtext{C (Fluent)}
 
-\cvskill{Machine Learning} {1+ yrs} {0.2} \\[-2pt]
+\cvtext{C++ (Fluent)}
 
-\cvskill{Python} {3+ yrs} {0.6} \\[-2pt]
+\cvtext{Java (Expert)}
 
-\cvskill{C++} {5+ yrs} {1} \\[-2pt]
+\cvtext{Latex (Fluent)}
 
-\cvskill{Linux} {1+ yrs} {0.2} \\[-2pt]
+\cvtext{Python (Fluent)}
 
-\cvskill{Web Development} {5+ yrs} {1} \\[-2pt]
+\cvtext{Javascript (Fluent)}
 
-\cvskill{Quantum Computing} {1+ yrs} {0.2} \\[-2pt]
 
-\cvskill{Teaching} {3+ yrs} {0.6} \\[-2pt]
 
-%\vfill\null
+\vfill
+\cvsubsection{FRAMEWORKS \& TOOLS}
+
+%\cvskill{Skill_Name} {Years of experience} {percentage of bar fill} \\[-2pt]
+\cvtext{\textbf{Version Control}: Git}
+
+\cvtext{\textbf{Linux scripting}: zshell, bash,\\ fish}
+
+
+\cvtext{\textbf{API testing}: Postman}
+
+\cvtext{\textbf{Database}: Azure, MySQL}
+
+\cvtext{\textbf{Frameworks}: Axios, MomentJs, Django, Flask}
+
+
 %\cvqrcode{0.7}
 
 %---------------------------------------------------------------------------------------
 %	ACHIEVEMENTS
 %----------------------------------------------------------------------------------------
 \newpage
-\cvsection{ACHIEVEMENTS}
+\vfill
+\cvsubsection{ACHIEVEMENTS}
 
 \cvmetaevent
-{GATE}
-{Computer Science and Information Technology (CS)}
+{University of Birmingham}
+{International Achievement Bursary and Excellence Scholarship}
 {}
-{Qualified in 2016 with 389 score in general category.}
-
-\cvmetaevent
-{IELTS}
-{7.0 out of 9 Band}
-{}
-{A certificate issued by International Development Program (IDP), Australia to prove English language proficiency for non-native English language speakers.}
-
-\cvmetaevent
-{Cloud Computing 101}
-{94.30\%}
-{}
-{A certificate issued by coursera to prove basic understanding of cloud computing.}
-
-\cvmetaevent
-{Achievement}
-{Certificate Detail}
-{}
-{Description will go here as a sentence.}
+{Excellent academic record while gaining admission into the University of Birmingham}
 
 \end{leftcolumn}
 \begin{rightcolumn}
@@ -427,163 +429,97 @@
 %----------------------------------------------------------------------------------------
 \fcolorbox{white}{darkcol}{\begin{minipage}[c][3.5cm][c]{1\mpwidth}
 	\begin {center}
-		\HUGE{ \textbf{ \textcolor{white}{ \uppercase{ YOUR NAME } } } } \\[-24pt]
+		\HUGE{ \textbf{ \textcolor{white}{ \uppercase{ VICTOR NYOYOKO } } } } \\[-24pt]
 		\textcolor{white}{ \rule{0.1\textwidth}{1.25pt} } \\[4pt]
-		\large{ \textcolor{white} {Research Scholar - Computer Science \& Engineering } }
+		\large{ \textcolor{white} {Research Scholar/ Software Engineer} }
 	\end {center}
 \end{minipage}} \\[14pt]
 \vspace{-12pt}
+%---------------------------------------------------------------------------------------
+%	PERSONAL STATEMENT
+%----------------------------------------------------------------------------------------
+\vfill\null
+\cvsection{PERSONAL STATEMENT} 
 
+\cvtext
+{I am driven by an unceasing curiousity for engineering: the need to know how anything functions and how it is implemented. This has steered my learning in the art of analytical thinking, applying programming paradigms and social skills. A position in your organisation will enable me, impart my skills and values while expanding my knowledge and experience }
+\vfill\null
 %---------------------------------------------------------------------------------------
 %	EDUCATION
 %----------------------------------------------------------------------------------------
+
 %\vfill\null
 \cvsection{EDUCATION}
 
 \cvevent
-	{\textbf{2019 - ongoing}}
-	{Ph. D. - Computer Science $\&$ Engineering}
-	{IIIT - Lucknow, UP (India)}
-	{Current Status: Coursework and On-campus duration completed.}
-\vfill\null
-
-\cvevent
-	{\textbf{20XX - 20XX}}
-	{M. Tech. - Computer Science $\&$ Engineering}
-	{University Name - City, State (Country)}
-	{Passed with \textbf{X.XX CGPA}. Thesis work on Your thesis domain.}
-\vfill\null
-
-\cvevent
-    {\textbf{20XX - 20XX}}
-    {B. Tech. - Information Technology}
-    {University Name - City, State (Country)}
-    {Passed with \textbf{XX.XX$\%$}. Major project was Major project name.}
+	{\textbf{2017 - 2022}}
+	{MEng. Computer Science $\&$ Engineering}
+	{University of Birmingham - Birmingham, United Kingdom}
+	{\textbf{Some modules studied}: Data Structures and Algorithm, Machine Learning, Networking, Mobile Computing, Logic and Computation, Functional Programming, Computer Vision, Security of Real-World Systems}
 \vfill\null
 
 %---------------------------------------------------------------------------------------
 %	WORK EXPERIENCE
 %----------------------------------------------------------------------------------------
-\vfill\null
+
 \cvsection{WORK EXPERIENCE}
-
 \cvevent
-	{\textbf{Jan YY - Dec YY}}
-	{Position name}
-	{Institute/Organization, City (State)}
-	{Write about your roles and responsibilities. In case of teaching experience also write about the subjects you taught.}
-	{}
-\vfill\null
+	{\textbf{Mar 21 - Aug 21}}
+	{Freelancer}
+	{Fiverr}
+	{A range of development. From fixing minor, bugs whitebox testing to creating projects for clients}
+	\vfill\null
 
-\cvevent
-	{\textbf{Jan YY - Jul YY}}
-	{Position name}
-	{Institute/Organization, City (State)}
-	{Write about your roles and responsibilities. In case of teaching experience also write about the subjects you taught.}
-	{}
-\vfill\null
-%---------------------------------------------------------------------------------------
-%	PUBLICATION
-%----------------------------------------------------------------------------------------
-\vspace{-0.5cm}
-\vfill\null
-\cvsection{PUBLICATIONS}
+	\begin{itemize}
+		\item \url{https://www.fiverr.com/victornyoyoko?up_rollout=true}
+	\end{itemize}
 
-\cvevent
-	{\textbf{UGC Listed}}
-	{Title of your research paper}
-	{Journal Name (ISSN: XXXX-XXXX) Vol XX, Issue XX, 20XX}
-	{Status: Accepted and Published}
-	{}
-\vfill\null
-
-\cvevent
-	{\textbf{SCI - IF X.XXX}}
-	{Title of your research paper}
-	{Journal Name (ISSN: XXXX-XXXX) Vol XX, Issue XX, 20XX}
-	{Status: Under Review}
-	{}
-\vfill\null
-
-\cvevent
-	{\textbf{SCI - IF X.XXX}}
-	{Title of your research paper}
-	{Journal Name (ISSN: XXXX-XXXX) Vol XX, Issue XX, 20XX}
-	{Status: Under Review}
-	{}
-\vfill\null
 %---------------------------------------------------------------------------------------
 %	PROJECTS
 %----------------------------------------------------------------------------------------
-\vfill\null
+% \vfill\null
 \cvsection{PROJECTS}
 
 \cvevent
-	{\textbf{20XX}}
-	{Project Name}
-	{Tool: Python, Raspberry Pi}
-	{A short description of your project.}
+	{\textbf{2022}}
+	{Attendance monitoring system}
+	{Tool: Python, Raspberry Pi, ReactJS, NodeJS, Azure, JavaScript, SQLserver}
+	{Created a novel solution that solves the unreliablity of internet connectivity in attendance monitoring systems.}
 \vfill\null
 
-
-\cvevent
-	{\textbf{20XX}}
-	{Project Name}
-	{Tool: Web Development}
-	{A short description of your project.}
-\vfill\null
-
-
-\cvevent
-	{\textbf{20XX}}
-	{Project Name}
-	{Tool: Android Studio}
-	{A short description of your project.}
-\vfill\null
-
-%---------------------------------------------------------------------------------------
-%	WORKSHOPS
-%----------------------------------------------------------------------------------------
-\vfill\null
-\cvsection{WORKSHOPS \& CONFERENCES}
-
-\cvevent
-	{\textbf{Mon 20XX}}
-	{Name of Conference}
-	{Conducted by}
-	{}
-\vfill\null
-
-\cvevent
-	{\textbf{May 2019}}
-	{IEEE Internation Conference on Future of Internet of Things}
-	{IEEE \& IIT Kanpur}
-	{}
-\vfill\null
-
-\cvevent
-	{\textbf{Jul 2020}}
-	{Online International Workshop on Machine Learning Applications to Images, IoT and Wireless Sensor Networks}
-	{University of Essex and IIIT, Lucknow}
-	{}
-\vfill\null
-%---------------------------------------------------------------------------------------
-%	SKILLS
-%----------------------------------------------------------------------------------------
-
-%---------------------------------------------------------------------------------------
-%	PERSONAL DETAILS
-%----------------------------------------------------------------------------------------
-\vfill\null
-\cvsection{EXTRACURRICULAR}
-\vspace{-0.3cm}
 \begin{itemize}
-  \item Put all the points that are not covered in \textbf{above sections}.
-  \item Put all the points that are \textbf{not covered} in above sections.
-  \item Put all the \textbf{points} that are not covered in above sections.
-  \item \textbf{Put all the points} that are not covered in above sections.
+	\item Wrote a research paper on the design process and the implementation of this work.
+	\item The implementation was based on an agile development cycle.
+	\item Gained an in-depth knowledge and skill in multiple fields that were require for the project
+ 	\item \url{https://github.com/g3ar-v/UOBproject.git}
 \end{itemize}
+
+\cvevent
+	{\textbf{2018}}
+	{Super flyer}
+	{Tool: Game Development, Java, JavaFx, Networking}
+	{A team project that required creating a game with JavaFx}
 \vfill\null
+
+ \begin{itemize}
+	\item The game was of a mulitplayer game with a similar style to donkey kong and super mario combined.
+	\item Implemented the networking component of the game, this required an understandng of how all components worked collectively
+	\item Reinforced my knowledge of networking and the applications of object-oriented programming in game design.
+\end{itemize}
+
+% %---------------------------------------------------------------------------------------
+% %	PERSONAL DETAILS
+% %----------------------------------------------------------------------------------------
+% \vfill\null
+% \cvsection{EXTRACURRICULAR}
+% \vspace{-0.3cm}
+% \begin{itemize}
+%   \item Put all the points that are not covered in \textbf{above sections}.
+%   \item Put all the points that are \textbf{not covered} in above sections.
+%   \item Put all the \textbf{points} that are not covered in above sections.
+%   \item \textbf{Put all the points} that are not covered in above sections.
+% \end{itemize}
+% \vfill\null
 
 
 % hotfixes to create fake-space to ensure the whole height is used
