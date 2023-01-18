@@ -5,7 +5,7 @@
 %============================================================================%
 
 %we use article class because we want to fully customize the page and don't use a cv template
-\documentclass[9pt,A4]{article}
+\documentclass[10pt,A4]{article}
 
 %----------------------------------------------------------------------------------------
 %	ENCODING
@@ -27,18 +27,19 @@
 
 % some tex-live fonts - choose your own
 
-%\usepackage[defaultsans]{droidsans}
-%\usepackage[default]{comfortaa}
-%\usepackage{cmbright}
+% \usepackage[defaultsans]{droidsans}
+% \usepackage[default]{comfortaa}
+% \usepackage{mathptmx}
+% \usepackage{newtxtext} 
 \usepackage[default]{raleway}
-%\usepackage{fetamont}
+% \usepackage{fetamont}
 %\usepackage[default]{gillius}
-%\usepackage[light,math]{iwona}
-%\usepackage[thin]{roboto} 
+% \usepackage[light,math]{iwona}
+% \usepackage[thin]{roboto} 
 
 % set font default
-\renewcommand*\familydefault{\sfdefault} 	
-\usepackage[T1]{fontenc}
+% \renewcommand*\familydefault{\sfdefault} 	
+% \usepackage[T1]{fontenc}
 
 % more font size definitions
 \usepackage{moresize}
@@ -49,6 +50,7 @@
 
 % include the fontawesome icon set
 \usepackage{fontawesome}
+\usepackage{amssymb}
 
 % use to vertically center content
 % credits to: http://tex.stackexchange.com/questions/7219/how-to-vertically-center-two-images-next-to-each-other
@@ -95,7 +97,7 @@
 \usepackage[a4paper]{geometry}
 
 % remove all possible margins
-\geometry{top=1cm, bottom=1cm, left=1cm, right=1cm}
+\geometry{top=0.3cm, bottom=0.3cm, left=0.3cm, right=0.3cm}
 
 \usepackage{fancyhdr}
 \pagestyle{empty}
@@ -143,7 +145,7 @@
 \usepackage{color}
 
 % primary color
-\definecolor{maincol}{RGB}{ 45, 50, 90 }
+\definecolor{maincol}{RGB}{ 55, 57, 63 }
 
 % accent color, secondary
 % \definecolor{accentcol}{RGB}{ 250, 150, 10 }
@@ -151,8 +153,11 @@
 % dark color
 \definecolor{darkcol}{RGB}{ 70, 70, 70 }
 
+% page background color
+\definecolor{pagecol}{RGB}{ 212, 202, 177}
+
 % light color
-\definecolor{lightcol}{RGB}{245,245,245}
+\definecolor{lightcol}{RGB}{170,162,142}
 
 
 % Package for links, must be the last package used
@@ -177,7 +182,7 @@
 
 % renders a standard latex list but abstracts away the environment definition (begin/end)
 \newcommand{\cvlist}[1] {
-	\begin{itemize}{#1}\end{itemize}
+	\begin{itemize}\item {#1}\end{itemize}
 }
 
 %----------------------------------------------------------------------------------------
@@ -200,11 +205,11 @@
 % Renders a a CV section headline with a nice underline in main color.
 % param 1: section title
 \newcommand{\cvsection}[1] {
-	\vspace{12pt}
 	\cvtext{
-		\textbf{\LARGE{\textcolor{darkcol}{\uppercase{#1}}}}\\[-4pt]
+		\textbf{\LARGE{\textcolor{darkcol}{\uppercase{#1}}}}\\[-6pt]
 		\textcolor{maincol}{ \rule{0.1\textwidth}{2pt} } \\
 	}
+  
 }
 %----------------------------------------------------------------------------------------
 %	CV SEMISECTION
@@ -228,16 +233,16 @@
 % param 1: name of the skill / tech / etc.
 % param 2: level (for example in years)
 % param 3: percent, values range from 0 to 1
-\newcommand{\cvskill}[3] {
+\newcommand{\cvskill}[2] {
 	\begin{tabular*}{1\mpwidth}{p{0.72\mpwidth}  r}
- 		\textcolor{black}{\textbf{#1}} & \textcolor{maincol}{#2}\\
-	\end{tabular*}%
+ 		\textcolor{darkcol}{\textbf{#1}} & \textcolor{maincol}{#2}
+	\end{tabular*}
 	
-	\hspace{4pt}
-	\begin{tikzpicture}[scale=1,rounded corners=2pt,very thin]
-		\fill [lightcol] (0,0) rectangle (1\mpwidth, 0.15);
-		\fill [maincol] (0,0) rectangle (#3\mpwidth, 0.15);
-  	\end{tikzpicture}%
+	% \hspace{4pt}
+	% \begin{tikzpicture}[scale=1,rounded corners=2pt,very thin]
+	% 	% \fill [lightcol] (0,0) rectangle (1\mpwidth, 0.15);
+	% 	% \fill [maincol] (0,0) rectangle (#3\mpwidth, 0.15);
+  	% \end{tikzpicture}%
 }
 
 
@@ -262,25 +267,27 @@
 	% if you need more control on page breaks, remove the parbox
 	\parbox{\mpwidth}{
 		\begin{tabular*}{1\mpwidth}{p{0.72\mpwidth}  r}
-	 		\textcolor{black}{\textbf{#2}} & \colorbox{maincol}{\makebox[0.25\mpwidth]{\textcolor{white}{#1}}} \\
+	 		\textcolor{black}{\textbf{#2}} & \colorbox{darkcol}{\makebox[0.25\mpwidth]{\textcolor{pagecol}{#1}}} \\
 			\textcolor{maincol}{\textbf{#3}} & \\
-		\end{tabular*}\\[4pt]
-	
-		\ifthenelse{\isempty{#4}}{}{
-			\cvtext{#4}\\
+		\end{tabular*}\\[1pt]
+    \ifthenelse{\isempty{#4}}{}{
+       \cvtext{#4}\\ 
 		}
-	}
 
-	\ifthenelse{\isempty{#5}}{}{
-		\vspace{4pt}
-		{#5}
-	}
-	\vspace{4pt}
+   \ifthenelse{\isempty{#5}}{}{
+      \cvtext{#5}
+    }
+
+    \ifthenelse{\isempty{#6}}{}{
+      \cvtext{#6}\\
+    }
+
+	}	
 }
 
 %----------------------------------------------------------------------------------------
 %	 CV META EVENT
-%----------------------------------------------------------------------------------------
+%--------------------------------------------------------------------------------------o
 
 % Renders a CV event on the sidebar
 % param 1: title
@@ -334,6 +341,7 @@
 \setlength{\columnsep}{2.2em}
 \setlength{\columnseprule}{4pt}
 \colseprulecolor{lightcol}
+\pagecolor{pagecol}
 \begin{paracol}{2}
 \begin{leftcolumn}
 %---------------------------------------------------------------------------------------
@@ -358,36 +366,22 @@
 %----------------------------------------------------------------------------------------
 \cvsubsection{AREA OF EXPERTISE}
 
-\cvtext{Machine Learning}
+\cvskill{Machine Learning}{3 years}
+\cvskill{Automation}{1 year}
+\cvskill{Computer Vision}{1 year}
+\cvskill{Backend Development}{1 year}
+\cvskill{Cyber-Security}{3 years}
+\cvskill{Embedded-programming}{2 years}
 
-\cvtext{Internet of Things/Automation}
-
-\cvtext{Computer Vision}
-
-\cvtext{Back-end development}
-
-\cvtext{Cloud Computing}
-
-\cvtext{Embedded Programming}
 
 % \vfill\null
 \cvsubsection{FRAMEWORKS \& TOOLS}
 
-%\cvskill{Skill_Name} {Years of experience} {percentage of bar fill} \\[-2pt]
-\cvtext{\textbf{ML tools}: JupyterNotebook, hugginface}
-
-\cvtext{\textbf{Version Control}: Git, Gitlab, Github}
-
-\cvtext{\textbf{Linux scripting}: zsh, bash}
-
-\cvtext{\textbf{API testing}: Postman}
-
-\cvtext{\textbf{Database}: Azure (SQLserver), MySQL, T-SQL}
-
-\cvtext{\textbf{Frameworks}: Django, Flask, ReactJS, NodeJS, NextJS}
-
-
-
+\cvtext{\textbf{Linux scripting}: zsh, bash}\\
+\cvtext{\textbf{API testing}: Postman}\\
+\cvtext{\textbf{Database}:Azure services, MySQL, T-SQL}\\
+\cvtext{\textbf{Frameworks \& Libraries}: Jupyter, Anaconda, numpy, tensorflow, Django, Flask, ReactJS, NodeJS, NextJS}\\
+\cvtext{\textbf{Editor}: NeoVim, VsCode}\\
 
 
 %---------------------------------------------------------------------------------------
@@ -397,27 +391,20 @@
 
 %\cvskill{Skill_Name} {Years of experience} {percentage of bar fill} \\[-2pt]
 
-\cvtext{C}
-
-\cvtext{C++}
-
-\cvtext{Lua}
-
-\cvtext{Java}
-
-\cvtext{Latex}
-
-\cvtext{Python}
-
-\cvtext{Javascript}
+\cvskill{C}{3 years}
+\cvskill{C++}{2 years}
+\cvskill{Lua}{1 year}
+\cvskill{Java}{4 years}
+\cvskill{Latex}{2 years}
+\cvskill{Python}{3 years}
+\cvskill{JavaScript}{2 years}
 
 %\cvqrcode{0.7}
 
 %---------------------------------------------------------------------------------------
 %	ACHIEVEMENTS
 %----------------------------------------------------------------------------------------
-\newpage
-\vfill
+\vspace{4pt}
 \cvsubsection{ACHIEVEMENTS}
 
 \cvmetaevent
@@ -431,51 +418,45 @@
 %---------------------------------------------------------------------------------------
 %	TITLE  HEADER
 %----------------------------------------------------------------------------------------
-\fcolorbox{white}{darkcol}{\begin{minipage}[c][2.5cm][c]{1\mpwidth}
+\fcolorbox{pagecol}{darkcol}{\begin{minipage}[c][2.0cm][c]{1\mpwidth}
 	\begin {center}
-		\HUGE{ \textbf{ \textcolor{white}{ \uppercase{ VICTOR NYOYOKO } } } } \\[-24pt]
-		\textcolor{white}{ \rule{0.1\textwidth}{1.25pt} } \\[4pt]
-		\large{ \textcolor{white} {Software Engineer/ Machine Learning Engineer} }
+		\HUGE{ \textbf{ \textcolor{pagecol}{ \uppercase{ VICTOR NYOYOKO } } } } \\[-28pt]
+		\textcolor{pagecol}{ \rule{0.1\textwidth}{1.25pt} } \\[4pt]
+		\large{ \textcolor{pagecol} {Software/Machine Learning Engineer} }
 	\end {center}
 \end{minipage}} \\[14pt]
-\vspace{-12pt}
+\vspace{-17pt}
 %---------------------------------------------------------------------------------------
 %	PERSONAL STATEMENT
 %----------------------------------------------------------------------------------------
 \vfill\null
 \cvsection{PERSONAL STATEMENT} 
-
 \cvtext
-{I am driven by an unceasing curiousity for engineering: the need to know how anything function, how it is implemented and to contribute to its further development. This has steered my learning in the art of analytical thinking, applying programming paradigms and social skills. A position in your organisation will enable me, impart my skills and values while expanding my knowledge and experience }
-\vfill\null
+{I am driven by an unceasing curiousity for engineering: the need to know how anything functions, how it is implemented and to contribute to its further development. This has steered my learning in the art of applying programming paradigms, social skills and analytical thinking. A position in your organisation will enable me, impart my skills and values while expanding my knowledge and experience }
 %---------------------------------------------------------------------------------------
 %	WORK EXPERIENCE
 %----------------------------------------------------------------------------------------
-
+\vfill\null
+\vspace{7pt}
 \cvsection{EXPERIENCE}
 \cvevent
-	{\textbf{Mar 21 - Aug 21}}
+	{\textbf{Mar 20 - Aug 21}}
 	{Freelancer}
 	{Fiverr}
-	{A range of development. From fixing minor bugs, whitebox testing to creating projects for clients}
-	\vfill\null
-
-	\begin{itemize}
-		\item \url{https://www.fiverr.com/victornyoyoko?up_rollout=true}
-	\end{itemize}
-
+	{A range of software development. From fixing minor bugs, whitebox testing to creating projects for clients}
+\vfill\null
 %---------------------------------------------------------------------------------------
 %	EDUCATION
 %----------------------------------------------------------------------------------------
-%\vfill\null
-\cvsection{EDUCATION}
+\vfill\null
 
+\cvsection{EDUCATION}
 \cvevent
 	{\textbf{2018 - 2022}}
 	{MEng. Computer Science $\&$ Engineering}
 	{University of Birmingham - Birmingham, United Kingdom}
-	{\textbf{Some modules studied}: Data Structures and Algorithm, Machine Learning, Networking, Natural Language processing, Artificial Intelligence, Functional Programming, Computer Vision, Security of Real-World Systems}
-	{Graduated with a 2:1}
+	{\textbf{Some modules studied}: Data Structures and Algorithm, Machine Learning, Networking, Natural Language processing, Artificial Intelligence, Computer Vision, Security of Real-World Systems}
+	{Graduated with a Second Class Upper Division (2:1)}
 \vfill\null
 
 %---------------------------------------------------------------------------------------
@@ -490,37 +471,28 @@
 	{\textbf{2022 - Currently}}
 	{Personal AI Assistant (Trevor)}
 	{Tool: Raspberrypi, MycroftAI, Python, Bash, Machine Learning }  
-	{AI assistant that controls smart devices, manages productivity and provides information}
+	{A modular AI assistant that automates, manages productivity and provides information}
+  {$\nrightarrow$ The aim is to create a positive influence in human productivity and creativity}
+  {Currently in development}
 \vfill\null
-
 
 \cvevent
 	{\textbf{2022}}
 	{Attendance monitoring system}
 	{Tool: Python, Raspberry Pi, ReactJS, NodeJS, Azure, JavaScript, SQLserver}
-	{Created a novel solution that solves the unreliablity of internet connectivity in attendance monitoring systems.}
-\vfill\nulL
-
-\begin{itemize}
-  \item Uses a combination of RFID and fingerprint recognition to identify students
-  \item Gives the admin access to track attendance over the internet
-	\item Wrote a research paper on the design process and the implementation of this work
-	\item An agile development cycle was used for the implementation of this project
- 	\item \url{https://github.com/g3ar-v/UOBproject.git}
-\end{itemize}
+	{$\nrightarrow$ Created a novel solution that solves the unreliablity of internet connectivity in attendance monitoring systems.}
+  {$\nrightarrow$ Uses RFID and fingerprint recognition to identify students}
+  {$\nrightarrow$ Uses Azure services to store data and gives the admin access to track attendance over the Internet}
+\vfill\null
 
 \cvevent
 	{\textbf{2018}}
 	{Super flyer}
 	{Tool: Game Development, Java, JavaFx, Networking}
-	{A team project that required creating a game with JavaFx}
+	{$\nrightarrow$ A team project to create a multiplayer game with JavaFx and networking}
+  {$\nrightarrow$ A similar gameplay to donkey kong and super mario mixed.}
+  {$\nrightarrow$ Implemented the networking component of the game. This required an understandng of how all components worked collectively(Rendering, UI)}
 \vfill\null
-
- \begin{itemize}
-	\item A mulitplayer game with a similar style to donkey kong and super mario combined.
-	\item Implemented the networking component of the game, this required an understandng of how all components worked collectively(Rendering, UI)
-	\item Reinforced my knowledge of networking and the applications of object-oriented programming in game design.
-\end{itemize}
 
 % hotfixes to create fake-space to ensure the whole height is used
 \vfill
