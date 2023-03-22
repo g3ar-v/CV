@@ -1,18 +1,19 @@
 %============================================================================%
+
 %
 %	DOCUMENT DEFINITION
 %
 %============================================================================%
 
 %we use article class because we want to fully customize the page and don't use a cv template
-\documentclass[10pt,A4]{article}
+\documentclass[11pt,A4]{article}
 
 %----------------------------------------------------------------------------------------
 %	ENCODING
 %----------------------------------------------------------------------------------------
 
 % we use utf8 since we want to build from any machine
-\usepackage[utf8]{inputenc}		
+\usepackage[utf8]{inputenc}
 
 %----------------------------------------------------------------------------------------
 %	LOGIC
@@ -55,32 +56,32 @@
 % use to vertically center content
 % credits to: http://tex.stackexchange.com/questions/7219/how-to-vertically-center-two-images-next-to-each-other
 \newcommand{\vcenteredinclude}[1]{\begingroup
-\setbox0=\hbox{\includegraphics{#1}}%
-\parbox{\wd0}{\box0}\endgroup}
+	\setbox0=\hbox{\includegraphics{#1}}%
+	\parbox{\wd0}{\box0}\endgroup}
 
 % use to vertically center content
 % credits to: http://tex.stackexchange.com/questions/7219/how-to-vertically-center-two-images-next-to-each-other
 \newcommand*{\vcenteredhbox}[1]{\begingroup
-\setbox0=\hbox{#1}\parbox{\wd0}{\box0}\endgroup}
+	\setbox0=\hbox{#1}\parbox{\wd0}{\box0}\endgroup}
 
 % icon shortcut
-\newcommand{\icon}[3] { 							
+\newcommand{\icon}[3] {
 	\makebox(#2, #2){\textcolor{maincol}{\csname fa#1\endcsname}}
-}	
+}
 
 % icon with text shortcut
-\newcommand{\icontext}[4]{ 						
+\newcommand{\icontext}[4]{
 	\vcenteredhbox{\icon{#1}{#2}{#3}}  \hspace{2pt}  \parbox{0.9\mpwidth}{\textcolor{#4}{#3}}
 }
 
 % icon with website url
-\newcommand{\iconhref}[5]{ 						
-    \vcenteredhbox{\icon{#1}{#2}{#5}}  \hspace{2pt} \href{#4}{\textcolor{#5}{#3}}
+\newcommand{\iconhref}[5]{
+	\vcenteredhbox{\icon{#1}{#2}{#5}}  \hspace{2pt} \href{#4}{\textcolor{#5}{#3}}
 }
 
 % icon with email link
-\newcommand{\iconemail}[5]{ 						
-    \vcenteredhbox{\icon{#1}{#2}{#5}}  \hspace{2pt} \href{mailto:#4}{\textcolor{#5}{#3}}
+\newcommand{\iconemail}[5]{
+	\vcenteredhbox{\icon{#1}{#2}{#5}}  \hspace{2pt} \href{mailto:#4}{\textcolor{#5}{#3}}
 }
 
 %----------------------------------------------------------------------------------------
@@ -97,7 +98,7 @@
 \usepackage[a4paper]{geometry}
 
 % remove all possible margins
-\geometry{top=0.3cm, bottom=0.3cm, left=0.3cm, right=0.3cm}
+\geometry{top=0.2cm, bottom=0.2cm, left=0.1cm, right=0.2cm}
 
 \usepackage{fancyhdr}
 \pagestyle{empty}
@@ -135,7 +136,7 @@
 % \restylefloat{figure}
 
 %for drawing graphics		
-\usepackage{tikz}				
+\usepackage{tikz}
 \usetikzlibrary{shapes, backgrounds,mindmap, trees}
 
 %----------------------------------------------------------------------------------------
@@ -167,7 +168,7 @@
 % to keep padding included in width calculations
 % can also be used for other boxes / environments
 \newcommand{\mpwidth}{\linewidth-\fboxsep-\fboxsep}
-	
+
 
 
 %============================================================================%
@@ -202,20 +203,20 @@
 %	CV SECTION
 %----------------------------------------------------------------------------------------
 
-% Renders a a CV section headline with a nice underline in main color.
+% Renders a CV section headline with a nice underline in main color.
 % param 1: section title
 \newcommand{\cvsection}[1] {
 	\cvtext{
 		\textbf{\LARGE{\textcolor{darkcol}{\uppercase{#1}}}}\\[-6pt]
 		\textcolor{maincol}{ \rule{0.1\textwidth}{2pt} } \\
 	}
-  
+
 }
 %----------------------------------------------------------------------------------------
 %	CV SEMISECTION
 %----------------------------------------------------------------------------------------
 
-% Renders a a CV section headline with a nice underline in main color.
+% Renders a CV section headline with a nice underline in main color.
 % param 1: section title
 \newcommand{\cvsubsection}[1] {
 	\vspace{9pt}
@@ -235,14 +236,14 @@
 % param 3: percent, values range from 0 to 1
 \newcommand{\cvskill}[2] {
 	\begin{tabular*}{1\mpwidth}{p{0.72\mpwidth}  r}
- 		\textcolor{darkcol}{\textbf{#1}} & \textcolor{maincol}{#2}
+		\textcolor{darkcol}{\textbf{#1}} & \textcolor{maincol}{#2}
 	\end{tabular*}
-	
+
 	% \hspace{4pt}
-	% \begin{tikzpicture}[scale=1,rounded corners=2pt,very thin]
+	% \begin{tikzpicture}[scale=1,rounded corners=2pt,damn thin]
 	% 	% \fill [lightcol] (0,0) rectangle (1\mpwidth, 0.15);
 	% 	% \fill [maincol] (0,0) rectangle (#3\mpwidth, 0.15);
-  	% \end{tikzpicture}%
+	% \end{tikzpicture}%
 }
 
 
@@ -262,27 +263,27 @@
 % param 6: technologies include (optional)
 % param 7: achievements (optional)
 \newcommand{\cvevent}[7] {
-	
+
 	% we wrap this part in a parbox, so title and description are not separated on a pagebreak
 	% if you need more control on page breaks, remove the parbox
 	\parbox{\mpwidth}{
 		\begin{tabular*}{1\mpwidth}{p{0.72\mpwidth}  r}
-	 		\textcolor{black}{\textbf{#2}} & \colorbox{darkcol}{\makebox[0.25\mpwidth]{\textcolor{pagecol}{#1}}} \\
+			\textcolor{black}{\textbf{#2}} & \colorbox{darkcol}{\makebox[0.26\mpwidth]{\textcolor{pagecol}{#1}}} \\
 			\textcolor{maincol}{\textbf{#3}} & \\
 		\end{tabular*}\\[1pt]
-    \ifthenelse{\isempty{#4}}{}{
-       \cvtext{#4}\\ 
+		\ifthenelse{\isempty{#4}}{}{
+			\cvtext{#4}\\
 		}
 
-   \ifthenelse{\isempty{#5}}{}{
-      \cvtext{#5}
-    }
+		\ifthenelse{\isempty{#5}}{}{
+			\cvtext{#5}
+		}
 
-    \ifthenelse{\isempty{#6}}{}{
-      \cvtext{#6}\\
-    }
+		\ifthenelse{\isempty{#6}}{}{
+			\cvtext{#6}\\
+		}
 
-	}	
+	}
 }
 
 %----------------------------------------------------------------------------------------
@@ -298,7 +299,7 @@
 	\textcolor{maincol} {\cvtext{\textbf{\begin{flushleft}#1\end{flushleft}}}}
 
 	\ifthenelse{\isempty{#2}}{}{
-	\textcolor{darkcol} {\cvtext{\textbf{#2}} }
+		\textcolor{darkcol} {\cvtext{\textbf{#2}} }
 	}
 
 	\ifthenelse{\isempty{#3}}{}{
@@ -320,185 +321,197 @@
 	\end{center}
 }
 
-%=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+
-%,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-                       % EDIT AFTER THIS POINT
-%''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
-%=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+
-
-
 %============================================================================%
-%
-%
 %
 %	DOCUMENT CONTENT
 %
-%
-%
 %============================================================================%
 \begin{document}
-\columnratio{0.31}
+\columnratio{0.36}
 \setlength{\columnsep}{2.2em}
 \setlength{\columnseprule}{4pt}
 \colseprulecolor{lightcol}
 \pagecolor{pagecol}
 \begin{paracol}{2}
-\begin{leftcolumn}
-%---------------------------------------------------------------------------------------
-%	META IMAGE
-%----------------------------------------------------------------------------------------
-%\includegraphics[width=\linewidth]{untitled.jpg}	%trimming relative to image size
+	\begin{leftcolumn}
+		%---------------------------------------------------------------------------------------
+		%	META IMAGE
+		%----------------------------------------------------------------------------------------
+		%\includegraphics[width=\linewidth]{untitled.jpg}	%trimming relative to image size
+
+		\vfill\null
+		\cvsection{CONTACT}
+
+		\iconemail{EnvelopeSquare}{14}{vfranktor@gmail.com}{vfranktor@gmail.com}{black}\\[6pt]
+		\icontext{Github}{14}{\href{https://github.com/g3ar-v}{g3ar-v}}{black}\\[6pt]
+		\icontext{Linkedin}{14}{\href{https://www.linkedin.com/in/victor-nyoyoko-1a1518196}{victor nyoyoko}}{black}\\[6pt]
+		\icontext{Phone}{14}{+44 7760532407}{black}\\[6pt]
+		\icontext{Link}{14}{\href{https://g3ar.vercel.app}{https://g3ar.vercel.app}}{black}\\[6pt]
+		% \vfill\null
+		%\cvqrcode{0.7}
+
+		%---------------------------------------------------------------------------------------
+		%	META SKILLS
+		%----------------------------------------------------------------------------------------
+		\cvsubsection{AREA OF EXPERTISE}
+
+		\cvskill{Machine Learning}{3 years}
+		\cvskill{Speech Recognition}{2 year}
+		\cvskill{Automation}{1 year}
+		\cvskill{Web Development}{1 year}
+		\cvskill{Computer Vision}{1 year}
+		\cvskill{Backend Development}{2 year}
+		\cvskill{Embedded-programming}{2 years}
+
+		% \vfill\null
+		\cvsubsection{FRAMEWORKS \& TOOLS}
+
+		\cvtext{\textbf{ML tools}: jupyter-notebook, keras, numpy, pandas, pytorch, tensorflow}\\
+		\cvtext{\textbf{Linux scripting}: zsh, bash}\\
+		\cvtext{\textbf{API testing}: Postman}\\
+		\cvtext{\textbf{Database}:Azure cloud services, MySQL, T-SQL}\\
+		\cvtext{\textbf{Frameworks \& Libraries}: Django, Flask, ReactJS, NodeJS, NextJS}\\
+		\cvtext{\textbf{Editor}: NeoVim, VsCode, Matlab}\\
+
+		%---------------------------------------------------------------------------------------
+		%	SKILLS
+		%----------------------------------------------------------------------------------------
+		\cvsubsection{LANGUAGES}
+
+		\cvskill{C}{5 years}
+		\cvskill{C++}{3 years}
+		\cvskill{R}{1 year}
+		\cvskill{Lua}{1 year}
+		\cvskill{Java}{5 years}
+		\cvskill{Latex}{3 years}
+		\cvskill{Python}{5 years}
+		\cvskill{JavaScript}{3 years}
+
+		%\cvqrcode{0.7}
+
+		%---------------------------------------------------------------------------------------
+		%	CERTIFICATIONS
+		%----------------------------------------------------------------------------------------
+		\cvsubsection{CERTIFICATIONS}
+		\vspace{-17pt}
+		\cvmetaevent
+		{Professional Machine Learning Engineer}
+		{Google Cloud}
+		{}
+		{- in progress -}
+		\newpage
+		\vfill\null
+		%---------------------------------------------------------------------------------------
+		%	ACHIEVEMENTS
+		%----------------------------------------------------------------------------------------
+		\cvsubsection{ACHIEVEMENTS}
+		\vspace{-17pt}
+		\cvmetaevent
+		{University of Birmingham}
+		{International Achievement Bursary and Excellence Scholarship}
+		{}
+		{Excellent academic record while gaining admission into the University of Birmingham}
+		\nopagebreak
+	\end{leftcolumn}
+	\begin{rightcolumn}
+		%---------------------------------------------------------------------------------------
+		%	TITLE  HEADER
+		%----------------------------------------------------------------------------------------
+		\fcolorbox{pagecol}{darkcol}{\begin{minipage}[c][2.0cm][c]{1\mpwidth}
+				\begin {center}
+				\HUGE{ \textbf{ \textcolor{pagecol}{ \uppercase{ VICTOR NYOYOKO } } } } \\[-28pt]
+				\textcolor{pagecol}{ \rule{0.1\textwidth}{1.25pt} } \\[4pt]
+				\large{ \textcolor{pagecol} {Software/Machine Learning Engineer} }
+				\end {center}
+			\end{minipage}} \\[14pt]
+		% \vspace{-10pt}
+		%---------------------------------------------------------------------------------------
+		%	PERSONAL STATEMENT
+		%----------------------------------------------------------------------------------------
+
+		\cvsection{PERSONAL STATEMENT}
+		\cvtext
+		{I am a 22 years old software engineer, driven by an unceasing curiousity for engineering: the need to know how anything functions, how it is implemented and to contribute to its further development. This has steered my learning in the art and science of applying programming paradigms, social skills and analytical thinking. A position in your organisation will enable me, impart my skills and values while expanding my knowledge and experience }
+		% \vspace{13pt}
+		\vfill\null
+		%---------------------------------------------------------------------------------------
+		%	PROJECTS
+		% what did itsolve
+		% what does it do
+		% how does it impact the world
+		%----------------------------------------------------------------------------------------
 
 
-\vfill\null
-\cvsection{CONTACT}
-	
-\iconemail{EnvelopeSquare}{14}{vfranktor@gmail.com}{vfranktor@gmail.com}{black}\\[6pt]
-\icontext{Github}{14}{\href{https://github.com/g3ar-v}{g3ar-v}}{black}\\[6pt]
-\icontext{Linkedin}{14}{\href{https://www.linkedin.com/in/victor-nyoyoko-1a1518196}{victor nyoyoko}}{black}\\[6pt]
-\icontext{Phone}{14}{+44 7760532407}{black}\\[6pt]
-\icontext{Link}{14}{\href{https://g3ar.vercel.app}{g3ar.dev}}{black}\\[6pt]
-% \vfill\null
-%\cvqrcode{0.7}
 
-%---------------------------------------------------------------------------------------
-%	META SKILLS
-%----------------------------------------------------------------------------------------
-\cvsubsection{AREA OF EXPERTISE}
-
-\cvskill{Machine Learning}{3 years}
-\cvskill{Automation}{1 year}
-\cvskill{Computer Vision}{1 year}
-\cvskill{Backend Development}{1 year}
-\cvskill{Cyber-Security}{3 years}
-\cvskill{Embedded-programming}{2 years}
+		\cvsection{PROJECTS}
+		\cvevent
+		{\textbf{2022 - Currently}}
+		{T.R.E.V.O.R (virtual assistant)}
+		{Tools: Raspberrypi, MycroftAI, Python, Bash, Linux, Deep Learning, API integration}
+		{$\nrightarrow$ A modular AI assistant designed with the foundation of MycroftAI that automates, manages productivity and provides information}
+		{$\nrightarrow$ A recent integration with gpt-3.5 provides information as quick as possible. }
+		{$\nrightarrow$ The recent focus is automating system processes with NLP (Natural
+			Language Processing) and instruction fine-tuning: which mimics the ability for it to
+			think for itself while running processes}
 
 
-% \vfill\null
-\cvsubsection{FRAMEWORKS \& TOOLS}
+		\cvevent
+		{\textbf{2022 - Currently}}
+		{Webporftolio/blog}
+		{Tools: React, NextJS, chakraUI, Vercel}
+		{$\nrightarrow$ A web portfolio/blog to showcase my projects and skills}
+		{$\nrightarrow$ The aim is to create a platform to share my knowledge and experience with the world}
+		{$\nrightarrow$ Recent focus is the design and implementation of the blog section}
 
-\cvtext{\textbf{Linux scripting}: zsh, bash}\\
-\cvtext{\textbf{API testing}: Postman}\\
-\cvtext{\textbf{Database}:Azure services, MySQL, T-SQL}\\
-\cvtext{\textbf{Frameworks \& Libraries}: Jupyter, Anaconda, numpy, tensorflow, Django, Flask, ReactJS, NodeJS, NextJS}\\
-\cvtext{\textbf{Editor}: NeoVim, VsCode}\\
+
+		\cvevent
+		{\textbf{2022}}
+		{Attendance monitoring system}
+		{Tools: Python, Raspberry Pi, ReactJS, NodeJS, Azure, JavaScript, SQLserver, Flask}
+		{$\nrightarrow$ Created a novel solution that solves the unreliablity of internet connectivity in attendance monitoring systems.}
+		{$\nrightarrow$ Uses RFID and fingerprint recognition to identify students}
+		{$\nrightarrow$ Uses Azure services to store data and gives the admin access to track attendance over the Internet}
 
 
-%---------------------------------------------------------------------------------------
-%	SKILLS
-%----------------------------------------------------------------------------------------
-\cvsubsection{LANGUAGES}
+		\cvevent
+		{\textbf{2018}}
+		{Super flyer}
+		{Tool: Game Development, Java, JavaFx, Networking}
+		{$\nrightarrow$ A team project to create a multiplayer game with JavaFx and networking}
+		{$\nrightarrow$ A relative gameplay compared to mario and donkey kong but with a vertically oriented smooth scroll layer }
+		{$\nrightarrow$ Implemented the networking component of the game with TCP sockets, prioritizing speed against data transmission}
+		\vfill\null
+		\vfill\null
+		\vfill\null
+		\vfill\null
 
-%\cvskill{Skill_Name} {Years of experience} {percentage of bar fill} \\[-2pt]
+		%---------------------------------------------------------------------------------------
+		%	WORK EXPERIENCE
+		%----------------------------------------------------------------------------------------
+		\newpage
+		\vfill\null
+		\cvsection{EXPERIENCE}
+		\cvevent
+		{\textbf{Mar 20 - Aug 21}}
+		{Freelancer}
+		{Fiverr}
+		{A range of software development. Bug hunting in small to large \\codebases,
+			whitebox testing, developing projects for clients mainly in Java, C and Python}
+		\vfill\null
 
-\cvskill{C}{3 years}
-\cvskill{C++}{2 years}
-\cvskill{Lua}{1 year}
-\cvskill{Java}{4 years}
-\cvskill{Latex}{2 years}
-\cvskill{Python}{3 years}
-\cvskill{JavaScript}{2 years}
+		%---------------------------------------------------------------------------------------
+		%	EDUCATION
+		%----------------------------------------------------------------------------------------
+		\vfill\null
+		\cvsection{EDUCATION}
+		\cvevent
+		{\textbf{2018 - 2022}}
+		{MEng. Computer Science $\&$ Software Engineering}
+		{University of Birmingham - Birmingham, United Kingdom}
+		{\textbf{Some modules studied}: Data Structures and Algorithm, Machine Learning, Networking, Natural Language processing, Artificial Intelligence, Computer Vision, Security of Real-World Systems}
+		{Graduated with a Second Class Upper Division (2:1)}
+		\vfill\null
 
-%\cvqrcode{0.7}
-
-%---------------------------------------------------------------------------------------
-%	ACHIEVEMENTS
-%----------------------------------------------------------------------------------------
-\vspace{4pt}
-\cvsubsection{ACHIEVEMENTS}
-
-\cvmetaevent
-{University of Birmingham}
-{International Achievement Bursary and Excellence Scholarship}
-{}
-{Excellent academic record while gaining admission into the University of Birmingham}
-
-\end{leftcolumn}
-\begin{rightcolumn}
-%---------------------------------------------------------------------------------------
-%	TITLE  HEADER
-%----------------------------------------------------------------------------------------
-\fcolorbox{pagecol}{darkcol}{\begin{minipage}[c][2.0cm][c]{1\mpwidth}
-	\begin {center}
-		\HUGE{ \textbf{ \textcolor{pagecol}{ \uppercase{ VICTOR NYOYOKO } } } } \\[-28pt]
-		\textcolor{pagecol}{ \rule{0.1\textwidth}{1.25pt} } \\[4pt]
-		\large{ \textcolor{pagecol} {Software/Machine Learning Engineer} }
-	\end {center}
-\end{minipage}} \\[14pt]
-\vspace{-17pt}
-%---------------------------------------------------------------------------------------
-%	PERSONAL STATEMENT
-%----------------------------------------------------------------------------------------
-\vfill\null
-\cvsection{PERSONAL STATEMENT} 
-\cvtext
-{I am driven by an unceasing curiousity for engineering: the need to know how anything functions, how it is implemented and to contribute to its further development. This has steered my learning in the art of applying programming paradigms, social skills and analytical thinking. A position in your organisation will enable me, impart my skills and values while expanding my knowledge and experience }
-%---------------------------------------------------------------------------------------
-%	WORK EXPERIENCE
-%----------------------------------------------------------------------------------------
-\vfill\null
-\vspace{7pt}
-\cvsection{EXPERIENCE}
-\cvevent
-	{\textbf{Mar 20 - Aug 21}}
-	{Freelancer}
-	{Fiverr}
-	{A range of software development. From fixing minor bugs, whitebox testing to creating projects for clients}
-\vfill\null
-%---------------------------------------------------------------------------------------
-%	EDUCATION
-%----------------------------------------------------------------------------------------
-\vfill\null
-
-\cvsection{EDUCATION}
-\cvevent
-	{\textbf{2018 - 2022}}
-	{MEng. Computer Science $\&$ Engineering}
-	{University of Birmingham - Birmingham, United Kingdom}
-	{\textbf{Some modules studied}: Data Structures and Algorithm, Machine Learning, Networking, Natural Language processing, Artificial Intelligence, Computer Vision, Security of Real-World Systems}
-	{Graduated with a Second Class Upper Division (2:1)}
-\vfill\null
-
-%---------------------------------------------------------------------------------------
-%	PROJECTS
-%----------------------------------------------------------------------------------------
-% \vfill\null
-\cvsection{PROJECTS}
-%%what did itsolve
-%%what does it do
-%% how does it impact the world
-\cvevent
-	{\textbf{2022 - Currently}}
-	{Personal AI Assistant (Trevor)}
-	{Tool: Raspberrypi, MycroftAI, Python, Bash, Machine Learning }  
-	{A modular AI assistant that automates, manages productivity and provides information}
-  {$\nrightarrow$ The aim is to create a positive influence in human productivity and creativity}
-  {Currently in development}
-\vfill\null
-
-\cvevent
-	{\textbf{2022}}
-	{Attendance monitoring system}
-	{Tool: Python, Raspberry Pi, ReactJS, NodeJS, Azure, JavaScript, SQLserver}
-	{$\nrightarrow$ Created a novel solution that solves the unreliablity of internet connectivity in attendance monitoring systems.}
-  {$\nrightarrow$ Uses RFID and fingerprint recognition to identify students}
-  {$\nrightarrow$ Uses Azure services to store data and gives the admin access to track attendance over the Internet}
-\vfill\null
-
-\cvevent
-	{\textbf{2018}}
-	{Super flyer}
-	{Tool: Game Development, Java, JavaFx, Networking}
-	{$\nrightarrow$ A team project to create a multiplayer game with JavaFx and networking}
-  {$\nrightarrow$ A similar gameplay to donkey kong and super mario mixed.}
-  {$\nrightarrow$ Implemented the networking component of the game. This required an understandng of how all components worked collectively(Rendering, UI)}
-\vfill\null
-
-% hotfixes to create fake-space to ensure the whole height is used
-\vfill
-\vfill
-\vfill
-\end{rightcolumn}
+	\end{rightcolumn}
 \end{paracol}
 \end{document}
-
